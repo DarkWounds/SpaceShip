@@ -1,4 +1,0 @@
-repository "SpaceShip/SpaceShip@7972554684446@cloud"
-  path "/"
-    br "/main"
-    co "/main"
