@@ -680,7 +680,7 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 1
   windowsGamepadBackendHint: 0
-  cloudProjectId: 5376a099-47bb-4f6f-86aa-10529fad9c56
+  cloudProjectId: ec0a73e5-9260-498c-9856-974b2ec1f863
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: SpaceShip
