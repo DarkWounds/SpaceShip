@@ -1,0 +1,37 @@
+﻿using UnityEngine;
+using UnityEngine.Rendering;
+
+public class Obstacle : MonoBehaviour
+{
+
+    public float randomMinSize = 0.5f;
+    public float randomMaxSize = 2.0f;
+
+    public float minSpeed = 0.2f;
+    public float maxSpeed = 0.5f;
+
+    public float maxSpinSpeed = 1f;
+
+    Rigidbody2D rigidbody2;
+
+    void Start()
+    {
+        rigidbody2 = GetComponent<Rigidbody2D>();
+        rigidbody2.gravityScale = 0f;
+
+        float randomSize = Random.Range(randomMinSize, randomMaxSize);
+        float randomSpeed = Random.Range(minSpeed, maxSpeed);
+        Vector2 randomDirection = Random.insideUnitCircle.normalized;
+        float randomTorque = Random.Range(-maxSpinSpeed, maxSpinSpeed);
+
+        transform.localScale = new Vector3(randomSize, randomSize, 1);
+
+        rigidbody2.linearVelocity = randomDirection * randomSpeed;
+        rigidbody2.AddTorque(randomTorque);
+    }
+
+    void Update()
+    {
+        
+    }
+}
