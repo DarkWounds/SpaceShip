@@ -1,0 +1,122 @@
+using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
+
+public class PlayerController : MonoBehaviour
+{
+    private float elapsedTime = 0f;
+    private float score = 0f;
+    private bool isDead = false;
+
+    public float scoreMultiplier = 10f;
+    public float thrustForce = 15f;
+    public float maxSpeed = 20f;
+
+    Rigidbody2D rb;
+
+    public UIDocument uiDocument;
+    private Label scoreText;
+
+    public GameObject explosionEffect;
+
+    private Button restartButton;
+
+    private void OnEnable()
+    {
+        if (uiDocument == null)
+        {
+            uiDocument = FindAnyObjectByType<UIDocument>();
+        }
+
+        if (uiDocument != null && uiDocument.rootVisualElement != null)
+        {
+            scoreText = uiDocument.rootVisualElement.Q<Label>("ScoreLabel");
+            restartButton = uiDocument.rootVisualElement.Q<Button>("RestartButton");
+            if (restartButton != null)
+            {
+                restartButton.style.display = DisplayStyle.None;
+                restartButton.clicked += ReloadScene;
+            }
+        }
+    }
+
+    private void MovePlayer()
+    { 
+        if (isDead) return;
+        if (Mouse.current.leftButton.isPressed)
+        {
+
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.value);
+            Vector2 direction = (mousePos - transform.position).normalized;
+
+            transform.up = direction;
+            rb.AddForce(direction * thrustForce);
+        }
+
+        if (rb.linearVelocity.magnitude > maxSpeed)
+        {
+            rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
+        }
+    }
+
+    private void UpdateScore()
+    {
+        if (isDead) return;
+        elapsedTime += Time.deltaTime;
+        score = (int)(elapsedTime * scoreMultiplier);
+
+        if (scoreText != null)
+        {
+            scoreText.text = "Score: " + score;
+        }
+    }
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+
+        if (scoreText == null && uiDocument != null && uiDocument.rootVisualElement != null)
+        {
+            scoreText = uiDocument.rootVisualElement.Q<Label>("ScoreLabel");
+        }
+    }
+
+    void Update()
+    {
+        UpdateScore();
+        MovePlayer();
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (isDead) return;
+        isDead = true;
+
+        // Hide visuals and disable physics instead of destroying the object
+        foreach (var r in GetComponentsInChildren<Renderer>()) r.enabled = false;
+        foreach (var c in GetComponentsInChildren<Collider2D>()) c.enabled = false;
+        
+        rb.linearVelocity = Vector2.zero;
+        rb.angularVelocity = 0f;
+        rb.simulated = false;
+
+        Instantiate(explosionEffect, transform.position, transform.rotation);
+        if (restartButton != null)
+            restartButton.style.display = DisplayStyle.Flex;
+    }
+
+    void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);   
+    }
+
+    private void OnDisable()
+    {
+        if (restartButton != null)
+        {
+            restartButton.clicked -= ReloadScene;
+        }
+    }
+
+}

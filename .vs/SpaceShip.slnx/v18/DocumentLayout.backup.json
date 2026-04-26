@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "D:\\Unity_Projects\\SpaceShip\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|d:\\unity_projects\\spaceship\\assets\\scripts\\obstacle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\obstacle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|d:\\unity_projects\\spaceship\\assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Unity_Projects\\SpaceShip\\Library\\PackageCache\\com.unity.collab-proxy@0b1559bcd34e\\Editor\\AssetsUtils\\Processor\\UnityCloudProjectLinkMonitor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Library\\PackageCache\\com.unity.collab-proxy@0b1559bcd34e\\Editor\\AssetsUtils\\Processor\\UnityCloudProjectLinkMonitor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|d:\\unity_projects\\spaceship\\assets\\scripts\\obstacle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\obstacle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -43,27 +43,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Obstacle.cs",
-              "DocumentMoniker": "D:\\Unity_Projects\\SpaceShip\\Assets\\Scripts\\Obstacle.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Obstacle.cs",
-              "ToolTip": "D:\\Unity_Projects\\SpaceShip\\Assets\\Scripts\\Obstacle.cs*",
-              "RelativeToolTip": "Assets\\Scripts\\Obstacle.cs*",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAcAAAATAAAAAAAAAA==",
+              "Title": "PlayerController.cs",
+              "DocumentMoniker": "D:\\Unity_Projects\\SpaceShip\\Assets\\Scripts\\PlayerController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerController.cs",
+              "ToolTip": "D:\\Unity_Projects\\SpaceShip\\Assets\\Scripts\\PlayerController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\PlayerController.cs",
+              "ViewState": "AgIAAEEAAAAAAAAAAIA3wFIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-04T09:37:52.846Z",
+              "WhenOpened": "2026-04-04T10:05:44.71Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "UnityCloudProjectLinkMonitor.cs",
-              "DocumentMoniker": "D:\\Unity_Projects\\SpaceShip\\Library\\PackageCache\\com.unity.collab-proxy@0b1559bcd34e\\Editor\\AssetsUtils\\Processor\\UnityCloudProjectLinkMonitor.cs",
-              "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.collab-proxy@0b1559bcd34e\\Editor\\AssetsUtils\\Processor\\UnityCloudProjectLinkMonitor.cs",
-              "ToolTip": "D:\\Unity_Projects\\SpaceShip\\Library\\PackageCache\\com.unity.collab-proxy@0b1559bcd34e\\Editor\\AssetsUtils\\Processor\\UnityCloudProjectLinkMonitor.cs",
-              "RelativeToolTip": "Library\\PackageCache\\com.unity.collab-proxy@0b1559bcd34e\\Editor\\AssetsUtils\\Processor\\UnityCloudProjectLinkMonitor.cs",
-              "ViewState": "AgIAAEUAAAAAAAAAAAAAAHcAAAA4AAAAAAAAAA==",
+              "Title": "Obstacle.cs",
+              "DocumentMoniker": "D:\\Unity_Projects\\SpaceShip\\Assets\\Scripts\\Obstacle.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Obstacle.cs",
+              "ToolTip": "D:\\Unity_Projects\\SpaceShip\\Assets\\Scripts\\Obstacle.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Obstacle.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-04T08:54:15.907Z",
+              "WhenOpened": "2026-04-04T10:00:25.956Z",
               "EditorCaption": ""
             }
           ]
