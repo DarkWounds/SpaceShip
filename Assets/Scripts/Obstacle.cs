@@ -7,8 +7,8 @@ public class NewMonoBehaviourScript : MonoBehaviour
     public float randomMinSize = 0.5f;
     public float randomMaxSize = 2.0f;
 
-    public float minSpeed = 400f;
-    public float maxSpeed = 800f;
+    public float minSpeed = 200f;
+    public float maxSpeed = 250f;
 
     public float maxSpinSpeed = 10f;
 

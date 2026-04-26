@@ -10,8 +10,8 @@ public class PlayerController : MonoBehaviour
     private bool isDead = false;
 
     public float scoreMultiplier = 10f;
-    public float thrustForce = 15f;
-    public float maxSpeed = 20f;
+    public float thrustForce = 5f;
+    public float maxSpeed = 10f;
 
     Rigidbody2D rb;
 
@@ -93,15 +93,23 @@ public class PlayerController : MonoBehaviour
         if (isDead) return;
         isDead = true;
 
+        if (explosionEffect != null)
+        {
+            // Spawn the explosion first before disabling any components
+            Instantiate(explosionEffect, transform.position, transform.rotation);
+        }
+
         // Hide visuals and disable physics instead of destroying the object
         foreach (var r in GetComponentsInChildren<Renderer>()) r.enabled = false;
         foreach (var c in GetComponentsInChildren<Collider2D>()) c.enabled = false;
-        
-        rb.linearVelocity = Vector2.zero;
-        rb.angularVelocity = 0f;
-        rb.simulated = false;
 
-        Instantiate(explosionEffect, transform.position, transform.rotation);
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector2.zero;
+            rb.angularVelocity = 0f;
+            rb.simulated = false;
+        }
+
         if (restartButton != null)
             restartButton.style.display = DisplayStyle.Flex;
     }
