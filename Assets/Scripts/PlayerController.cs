@@ -24,6 +24,10 @@ public class PlayerController : MonoBehaviour
     public GameObject explosionEffect;
 
     private Button restartButton;
+    private Button exitButton;
+    private Button resumeButton;
+
+    private bool isPaused = false;
 
     private void OnEnable()
     {
@@ -38,11 +42,26 @@ public class PlayerController : MonoBehaviour
             // Legam elementele UI folosite in gameplay.
             scoreText = uiDocument.rootVisualElement.Q<Label>("ScoreLabel");
             restartButton = uiDocument.rootVisualElement.Q<Button>("RestartButton");
+            exitButton = uiDocument.rootVisualElement.Q<Button>("ExitButton");
+            resumeButton = uiDocument.rootVisualElement.Q<Button>("ResumeButton");
+
             if (restartButton != null)
             {
                 // Butonul de restart este ascuns pana la moarte.
                 restartButton.style.display = DisplayStyle.None;
                 restartButton.clicked += ReloadScene;
+            }
+
+            if (exitButton != null)
+            {
+                exitButton.style.display = DisplayStyle.None;
+                exitButton.clicked += ExitGame;
+            }
+
+            if (resumeButton != null)
+            {
+                resumeButton.style.display = DisplayStyle.None;
+                resumeButton.clicked += TogglePause;
             }
         }
     }
@@ -94,6 +113,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (Keyboard.current.escapeKey.wasPressedThisFrame && !isDead)
+        {
+            TogglePause();
+        }
+
         UpdateScore();
         MovePlayer();
     }
@@ -128,17 +152,41 @@ public class PlayerController : MonoBehaviour
 
     void ReloadScene()
     {
-        // Reincarca scena curenta pentru un nou joc.
+        Time.timeScale = 1f; // Reseteaza timpul in caz ca eram in pauza
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);   
+    }
+
+    private void TogglePause()
+    {
+        isPaused = !isPaused;
+        Time.timeScale = isPaused ? 0f : 1f;
+
+        if (MusicManager.Instance != null)
+        {
+            MusicManager.Instance.SetPaused(isPaused);
+        }
+
+        DisplayStyle menuStyle = isPaused ? DisplayStyle.Flex : DisplayStyle.None;
+
+        if (resumeButton != null) resumeButton.style.display = menuStyle;
+        if (restartButton != null) restartButton.style.display = menuStyle;
+        if (exitButton != null) exitButton.style.display = menuStyle;
+    }
+
+    private void ExitGame()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
     }
 
     private void OnDisable()
     {
-        // Curatam listener-ul pentru a evita abonari duplicate.
-        if (restartButton != null)
-        {
-            restartButton.clicked -= ReloadScene;
-        }
+        if (restartButton != null) restartButton.clicked -= ReloadScene;
+        if (exitButton != null) exitButton.clicked -= ExitGame;
+        if (resumeButton != null) resumeButton.clicked -= TogglePause;
     }
 
 }

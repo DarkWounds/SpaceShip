@@ -1,4 +1,4 @@
-Liceul [Numele Liceului Tău] 
+Liceul Teoretic „Emil Racoviță” Vaslui 
 
  
 
@@ -32,7 +32,7 @@ Lucrare de atestat profesional la informatică
 
  
 
-Candidat: [Numele Tău]    Îndrumător: [Numele Profesorului] 
+Candidat: Natalia Maria Păduraru    Îndrumător: [Numele Profesorului] 
 
  
 
@@ -50,7 +50,7 @@ Candidat: [Numele Tău]    Îndrumător: [Numele Profesorului]
 
  
 
-2024 / 2025 
+2025 / 2026 
 
  
 
@@ -91,14 +91,14 @@ Aplicația a fost dezvoltată în prealabil în mediul de dezvoltare Unity (Game
 
 Capitolul III – Prezentarea codului sursă 
 
-Scriptul pentru Asteroizi (Obstacole) - NewMonoBehaviourScript.cs:
+Scriptul pentru Asteroizi (Obstacole) - Obstacle.cs:
 Acest script gestionează inițializarea caracteristicilor fizice ale obstacolelor, propulsându-le în direcții și rotații haotice.
 
 ```csharp
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class Obstacle : MonoBehaviour
 {
     public float randomMinSize = 0.5f;
     public float randomMaxSize = 2.0f;

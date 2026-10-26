@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class Obstacle : MonoBehaviour
 {
 
     // Intervalul de scalare aleatorie pentru fiecare obstacol.
